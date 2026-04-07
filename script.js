@@ -1,14 +1,13 @@
 let listElemente = document.querySelector("#app");
 
-let post = [];
-
 function nutriApp() {
-  fetch(" https://sujeitoprogramador.com/rn-api/?api=posts")
+  let post = [];
+  fetch("https://sujeitoprogramador.com/rn-api/?api=posts")
     .then((r) => r.json())
     .then((json) => {
       post = json;
 
-      post.map((item) => {
+      post.forEach((item) => {
         let liElement = document.createElement("li");
         let titleElement = document.createElement("strong");
         let imgElement = document.createElement("img");
@@ -30,8 +29,8 @@ function nutriApp() {
       });
     })
 
-    .catch(() => {
-      console.log("deu alguma erro");
+    .catch((err) => {
+      console.log(err);
     });
 }
 

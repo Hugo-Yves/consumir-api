@@ -5,6 +5,7 @@ function nutriApp() {
   fetch("https://sujeitoprogramador.com/rn-api/?api=posts")
     .then((r) => r.json())
     .then((json) => {
+      document.getElementById("loading").remove();
       post = json;
 
       post.forEach((item) => {
